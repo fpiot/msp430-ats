@@ -11,3 +11,5 @@
 # Compiled Python files
 *.pyc
 *.pyo
+# ATS
+*_dats.c
