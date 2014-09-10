@@ -1,19 +1,13 @@
 %{^
 #include <bsp430/platform.h>
-/* We're going to use LEDs so we need the interface file */
-#include <bsp430/utility/led.h>
-/* We want to know the nominal clock speed so we can delay. */
-#include <bsp430/clock.h>
+#include <bsp430/utility/led.h> /* We're going to use LEDs so we need the interface file */
+#include <bsp430/clock.h> /* We want to know the nominal clock speed so we can delay. */
 %}
 
 %{
-void main ()
+void main_func ()
 {
   int led = 0;
-
-  /* First thing you do in main is configure the platform.
-   * Note that this configures the LEDs. */
-  vBSP430platformInitialize_ni();
 
   while (1) {
     /* A common complaint is that "blink doesn't work!" when the issue
@@ -37,3 +31,16 @@ void main ()
 
 }
 %}
+
+extern fun BSP430_CORE_WATCHDOG_CLEAR: () -> void = "mac#"
+extern fun BSP430_CORE_DELAY_CYCLES: (ulint) -> void = "mac#"
+extern fun vBSP430platformInitialize_ni: () -> void = "mac#"
+extern fun vBSP430ledSet: (int, int) -> void = "mac#"
+extern fun main_func: () -> void = "mac#"
+
+implement main0 () = {
+  (* First thing you do in main is configure the platform.
+   * Note that this configures the LEDs. *)
+  val () = vBSP430platformInitialize_ni ()
+  val () = main_func ()
+}
