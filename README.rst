@@ -5,6 +5,8 @@ ATS programming on msp430 |travisci|
 .. |travisci| image:: https://travis-ci.org/fpiot/msp430-ats.svg?branch=ats
     :target: https://travis-ci.org/fpiot/msp430-ats
 
+.. image:: img/MSP-EXP430FR5969.jpg
+    :target: http://www.ti.com/tool/MSP-EXP430FR5969
 
 Original Document
 -----------------
