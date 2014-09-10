@@ -2,7 +2,13 @@ before_install:
   - date
   - cat /proc/cpuinfo
   - cd ${HOME}
-  - sudo apt-get -qq -y install gcc-msp430 libgmp-dev
+  - sudo apt-get -qq -y install libgmp-dev
+  # Install wheezy packages
+  - wget http://cdn.debian.net/debian/pool/main/m/msp430mcu/msp430mcu_20120406-2_all.deb
+  - wget http://cdn.debian.net/debian/pool/main/b/binutils-msp430/binutils-msp430_2.22~msp20120406-2_amd64.deb
+  - wget http://cdn.debian.net/debian/pool/main/m/msp430-libc/msp430-libc_20120224-1_amd64.deb
+  - wget http://cdn.debian.net/debian/pool/main/g/gcc-msp430/gcc-msp430_4.6.3~mspgcc-20120406-3+deb7u2_amd64.deb
+  - sudo dpkg -i msp430mcu*.deb binutils-msp430*.deb msp430-libc*.deb gcc-msp430*.deb
   - git clone https://github.com/githwxi/ATS-Postiats.git
   # Build ATS1
   - export ATSHOME=${HOME}/ats-lang-anairiats-0.2.11
