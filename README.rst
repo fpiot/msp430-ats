@@ -27,7 +27,7 @@ Install some Debian packages.
 
     $ sudo apt-get install libgmp-dev gcc-msp430 msp430-libc mspdebug:i386
 
-Also install tools related to msp430, using [Code Composer Studio (CCS)](http://www.ti.com/tool/ccstudio-msp430).
+Also install tools related to msp430, using `Code Composer Studio (CCS)`_.
 And check location of libmsp430.so file.
 
 .. code:: bash
@@ -114,6 +114,8 @@ How to debug using gdb
 ----------------------
 
 T.B.D.
+
+.. _Code Composer Studio (CCS): http://www.ti.com/tool/ccstudio-msp430
 
 Original Document
 -----------------
