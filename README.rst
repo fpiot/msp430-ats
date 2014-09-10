@@ -5,8 +5,40 @@ ATS programming on msp430 |travisci|
 .. |travisci| image:: https://travis-ci.org/fpiot/msp430-ats.svg?branch=ats
     :target: https://travis-ci.org/fpiot/msp430-ats
 
+Hardware: MSP-EXP430FR5969
+--------------------------
+
 .. image:: img/MSP-EXP430FR5969.jpg
     :target: http://www.ti.com/tool/MSP-EXP430FR5969
+
+* CPU: MSP430FR5969 (TI MSP430 16-bit)
+* FRAM: 64 KiB
+* SRAM: 2 KiB
+
+Setup environment
+-----------------
+
+T.B.D.
+
+* Debian GNU/Linux
+* Mac OS X
+* Windows
+
+
+How to build
+------------
+
+T.B.D.
+
+Write to the board
+------------------
+
+T.B.D.
+
+How to debug using gdb
+----------------------
+
+T.B.D.
 
 Original Document
 -----------------
