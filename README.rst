@@ -21,7 +21,24 @@ Setup environment
 Debian GNU/Linux
 ~~~~~~~~~~~~~~~~
 
-T.B.D.
+Install some Debian packages.
+
+.. code:: bash
+
+    $ sudo apt-get install libgmp-dev gcc-msp430 msp430-libc mspdebug:i386
+
+Also install tools related to msp430, using [Code Composer Studio (CCS)](http://www.ti.com/tool/ccstudio-msp430).
+And check location of libmsp430.so file.
+
+.. code:: bash
+
+    $ ./ccs_setup_linux32.bin
+    $ ls ~/ti
+    CCSExternalReferences/  Code Composer Studio 6.0.1.desktop*  ccsv6/  xdctools_3_30_03_47_core/
+    $ file -b ~/ti/ccsv6/ccs_base/DebugServer/drivers/libmsp430.so
+    ELF 32-bit LSB shared object, Intel 80386, version 1 (SYSV), dynamically linked, not stripped
+    $ cd ~/ti/ccsv6/install_scripts
+    $ sudo ./install_drivers.sh
 
 Mac OS X
 ~~~~~~~~
@@ -36,12 +53,62 @@ T.B.D.
 How to build
 ------------
 
-T.B.D.
+Install ATS2 http://www.ats-lang.org/.
+
+.. code:: bash
+
+    $ wget http://downloads.sourceforge.net/project/ats2-lang/ats2-lang/ats2-postiats-0.0.8/ATS2-Postiats-0.0.8.tgz
+    $ tar xf ATS2-Postiats-0.0.8.tgz
+    $ cd ATS2-Postiats-0.0.8
+    $ ./configure
+    $ make
+    $ sudo make install
+    $ export PATSHOME=/usr/local/lib/ats2-postiats-0.0.8
+
+Compile the ATS source code for MSP430.
+
+.. code:: bash
+
+    $ cd msp430-ats/examples/ats/blink
+    $ make
+    $ file app.elf
+    app.elf: ELF 32-bit LSB executable, TI msp430, version 1, statically linked, not stripped
 
 Write to the board
 ------------------
 
-T.B.D.
+Connect MSP430 board to your PC using USB cable. And run following commands.
+
+.. code:: bash
+
+    $ ls -l /dev/ttyACM0
+    $ crw-rw-rw- 1 root dialout 166, 0 Sep 11 05:28 /dev/ttyACM0
+    $ make write
+    --snip--
+    LD_LIBRARY_PATH=/home/kiwamu/home/kiwamu/ti/ccsv6/ccs_base/DebugServer/drivers/ mspdebug tilib "prog app.elf"
+    MSPDebug version 0.22 - debugging tool for MSP430 MCUs
+    Copyright (C) 2009-2013 Daniel Beer <dlbeer@gmail.com>
+    --snip--
+    MSP430_GetNumberOfUsbIfs
+    MSP430_GetNameOfUsbIf
+    Found FET: ttyACM0
+    MSP430_Initialize: ttyACM0
+    Firmware version is 30401000
+    MSP430_VCC: 3000 mV
+    MSP430_OpenDevice
+    MSP430_GetFoundDevice
+    Device: MSP430FR5969 (id = 0x011d)
+    3 breakpoints available
+    MSP430_EEM_Init
+    Chip ID data: 69 81 30
+    Erasing...
+    Programming...
+    Writing 1102 bytes at 4400 [section: .text]...
+    Writing  112 bytes at 484e [section: .rodata]...
+    Writing  128 bytes at ff80 [section: .vectors]...
+    Done, 1342 bytes total
+    MSP430_Run
+    MSP430_Close
 
 How to debug using gdb
 ----------------------
