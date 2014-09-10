@@ -3,6 +3,10 @@
 
 #include <stddef.h>
 
+/* DUMMY */
+typedef int time_t;
+typedef int off_t;
+typedef int pid_t;
 typedef int FILE;
 extern int *stderr;
 
