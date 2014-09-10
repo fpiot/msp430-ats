@@ -18,12 +18,20 @@ Hardware: MSP-EXP430FR5969
 Setup environment
 -----------------
 
+Debian GNU/Linux
+~~~~~~~~~~~~~~~~
+
 T.B.D.
 
-* Debian GNU/Linux
-* Mac OS X
-* Windows
+Mac OS X
+~~~~~~~~
 
+T.B.D.
+
+Windows
+~~~~~~~
+
+T.B.D.
 
 How to build
 ------------
