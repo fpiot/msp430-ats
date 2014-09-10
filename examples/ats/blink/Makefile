@@ -1,5 +1,6 @@
 BSP430_ROOT=../../..
 PLATFORM ?= exp430fr5969
 MODULES=$(MODULES_PLATFORM)
-SRC=main.c
+SRC=main_dats.c
 include $(BSP430_ROOT)/make/Makefile.common
+include ../Makefile.common_ats
