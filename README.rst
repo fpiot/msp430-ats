@@ -1,6 +1,10 @@
-=========================
-ATS programming on msp430
-=========================
+====================================
+ATS programming on msp430 |travisci|
+====================================
+
+.. |travisci| image:: https://travis-ci.org/fpiot/msp430-ats.svg?branch=ats
+    :target: https://travis-ci.org/fpiot/msp430-ats
+
 
 Original Document
 -----------------
