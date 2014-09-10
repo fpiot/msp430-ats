@@ -13,4 +13,5 @@
 *.pyo
 # ATS
 examples/ats/*/sys/
+pats_ccomp_config.h
 *_dats.c

@@ -9,7 +9,7 @@ pats_ccomp_config.h:
 
 sys/:
 	mkdir -p sys
-	cp -a ../_dummy_sys/* sys/
+	cp $(BSP430_ROOT)/ats/_dummy_sys/* sys/
 
 $(SRC): %_dats.c: %.dats pats_ccomp_config.h sys/
 	$(ATS) -o $@ -d $<
