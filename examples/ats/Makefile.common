@@ -1,5 +1,6 @@
 ATS           = patsopt
 ATSCFLAGS     = -std=c99 -D_XOPEN_SOURCE -D_ATS_CCOMP_EXCEPTION_NONE -D_ATSTYPE_VAR_SIZE=0X000F -Wno-unused-variable -Wno-unused-label -Wno-unused-but-set-variable -Wno-implicit-function-declaration -Wno-format -I. -I${PATSHOME} -I${PATSHOME}/ccomp/runtime
+PATH_LIBMSP   = $(HOME)/home/kiwamu/ti/ccsv6/ccs_base/DebugServer/drivers/
 TARGET_CFLAGS += $(ATSCFLAGS)
 CLEAN         += -rf sys pats_ccomp_config.h main_dats.c
 
@@ -12,3 +13,6 @@ sys/:
 
 $(SRC): %_dats.c: %.dats pats_ccomp_config.h sys/
 	$(ATS) -o $@ -d $<
+
+write: $(AOUT)
+	LD_LIBRARY_PATH=$(PATH_LIBMSP) mspdebug tilib "prog app.elf"
